@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PromptFlow - AI Powered Web Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: "#eff6ff",
+              100: "#dbeafe",
+              200: "#bfdbfe",
+              500: "#3b82f6",
+              600: "#2563eb",
+              700: "#1d4ed8",
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Font Awesome (for footer social icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
+      <!-- Brand -->
+      <a href="#hero" class="flex items-center gap-2">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600">
+          <span class="text-lg font-extrabold tracking-tight">PF</span>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="text-base font-semibold tracking-tight md:text-lg">PromptFlow</span>
+          <span class="text-[11px] text-slate-400 md:text-xs">AI-Powered Frontend</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#hero" class="text-sm font-medium text-slate-200 hover:text-primary-400">Home</a>
+        <a href="#services" class="text-sm font-medium text-slate-200 hover:text-primary-400">Services</a>
+        <a href="#about" class="text-sm font-medium text-slate-200 hover:text-primary-400">About</a>
+        <a href="#contact" class="text-sm font-medium text-slate-200 hover:text-primary-400">Contact</a>
+      </div>
+
+      <!-- CTA + Mobile Button -->
+      <div class="flex items-center gap-3">
+        <a
+          href="#contact"
+          class="hidden rounded-full bg-primary-600 px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-md shadow-primary-600/40 transition hover:bg-primary-700 md:inline-block md:text-sm"
+        >
+          Get Started
+        </a>
+        <button
+          class="inline-flex rounded-md border border-slate-700 p-2 text-slate-200 hover:bg-slate-800 md:hidden"
+          onclick="toggleMobileNav()"
+          aria-label="Toggle navigation"
+        >
+          <i data-feather="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="hidden border-t border-slate-800 bg-slate-950 md:hidden">
+      <div class="mx-auto flex max-w-6xl flex-col px-4 py-3 space-y-1">
+        <a href="#hero" class="rounded-md px-2 py-2 text-sm font-medium text-slate-200 hover:bg-slate-800">Home</a>
+        <a href="#services" class="rounded-md px-2 py-2 text-sm font-medium text-slate-200 hover:bg-slate-800">Services</a>
+        <a href="#about" class="rounded-md px-2 py-2 text-sm font-medium text-slate-200 hover:bg-slate-800">About</a>
+        <a href="#contact" class="rounded-md px-2 py-2 text-sm font-medium text-slate-200 hover:bg-slate-800">Contact</a>
+        <a
+          href="#contact"
+          class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+        >
+          Get Started
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <header
+    id="hero"
+    class="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"
+  >
+    <div
+      class="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu blur-3xl"
+      aria-hidden="true"
+    >
+      <div
+        class="mx-auto h-64 max-w-4xl bg-gradient-to-tr from-primary-600 via-indigo-500 to-sky-500 opacity-40"
+      ></div>
+    </div>
+
+    <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center md:py-24">
+      <!-- Left Content -->
+      <div class="flex-1 space-y-6">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-primary-500/40 bg-primary-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.15em] text-primary-100"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+          AI-Powered Frontend Workflow
+        </span>
+
+        <h1 class="text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
+          Turn <span class="text-primary-400">prompts</span> into
+          pixel-perfect, responsive web sections.
+        </h1>
+
+        <p class="max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+          PromptFlow helps you generate clean, modern UI sections using structured prompts.
+          Fully responsive layouts, consistent design system, and production-ready HTML/Tailwind code.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center rounded-full bg-primary-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-600/40 transition hover:bg-primary-700"
+          >
+            Explore Services
+            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+          </a>
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-100 hover:border-primary-500 hover:text-primary-300"
+          >
+            Book a free call
+          </a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 pt-3 text-xs text-slate-400 sm:text-sm">
+          <div class="flex items-center gap-2">
+            <i data-feather="check-circle" class="h-4 w-4 text-emerald-400"></i>
+            <span>Clean, semantic HTML5</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-feather="check-circle" class="h-4 w-4 text-emerald-400"></i>
+            <span>TailwindCSS design system</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div class="flex-1">
+        <div
+          class="relative mx-auto max-w-md rounded-2xl border border-slate-800 bg-slate-900/70 p-3 shadow-xl shadow-primary-900/60"
+        >
+          <div
+            class="aspect-[4/3] overflow-hidden rounded-xl bg-slate-900/80 ring-1 ring-slate-700/80"
+          >
+            <img
+              src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Developers collaborating using AI tools"
+              class="h-full w-full object-cover"
+            />
+          </div>
+
+          <div
+            class="mt-4 grid grid-cols-3 gap-3 text-[11px] text-slate-300"
+          >
+            <div class="rounded-lg border border-slate-700/80 bg-slate-900/80 p-2">
+              <p class="font-semibold text-primary-200">5+ Sections</p>
+              <p class="text-[10px] text-slate-400">Hero, Nav, Services, Forms & Footer</p>
+            </div>
+            <div class="rounded-lg border border-slate-700/80 bg-slate-900/80 p-2">
+              <p class="font-semibold text-emerald-300">100% Responsive</p>
+              <p class="text-[10px] text-slate-400">Mobile-first, grid & flex</p>
+            </div>
+            <div class="rounded-lg border border-slate-700/80 bg-slate-900/80 p-2">
+              <p class="font-semibold text-amber-300">AI-Generated</p>
+              <p class="text-[10px] text-slate-400">No manual CSS required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= SERVICES SECTION ================= -->
+  <section id="services" class="border-b border-slate-800 bg-slate-900/60">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+      <div class="mx-auto max-w-2xl text-center space-y-3">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-300">
+          Services
+        </h2>
+        <p class="text-2xl font-bold text-slate-50 sm:text-3xl">
+          Everything you need for AI-first frontends.
+        </p>
+        <p class="text-sm text-slate-300 sm:text-base">
+          From navigation to footers, we turn structured prompts into
+          production-ready sections with consistent spacing, color, and layout.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <!-- Card 1 -->
+        <article
+          class="group flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5 transition hover:-translate-y-1 hover:border-primary-500/70 hover:bg-slate-900/80 hover:shadow-xl hover:shadow-primary-900/40"
+        >
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300"
+          >
+            <i data-feather="layout" class="h-5 w-5"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-50">Section Blueprints</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Reusable prompt templates for navbars, heroes, feature sections,
+            contact forms, and footers that always render clean layouts.
+          </p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-400">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Semantic HTML5 tags
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Grid & Flexbox structure
+            </li>
+          </ul>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="group flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5 transition hover:-translate-y-1 hover:border-primary-500/70 hover:bg-slate-900/80 hover:shadow-xl hover:shadow-primary-900/40"
+        >
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300"
+          >
+            <i data-feather="cpu" class="h-5 w-5"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-50">Prompt Engineering</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Carefully structured prompts that guide AI tools to produce
+            consistent, visually appealing UI every single time.
+          </p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-400">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Tool-agnostic prompts
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Repeatable & reusable patterns
+            </li>
+          </ul>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="group flex flex-col rounded-2xl border border-slate-800 bg-slate-950/60 p-5 transition hover:-translate-y-1 hover:border-primary-500/70 hover:bg-slate-900/80 hover:shadow-xl hover:shadow-primary-900/40"
+        >
+          <div
+            class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/15 text-primary-300"
+          >
+            <i data-feather="smartphone" class="h-5 w-5"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-50">Responsive Systems</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Mobile-first Tailwind utilities for perfect spacing, alignment,
+            and readability on phones, tablets, and desktops.
+          </p>
+          <ul class="mt-3 space-y-1 text-xs text-slate-400">
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Tested on multiple breakpoints
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-primary-400"></span> Consistent typography scale
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT SECTION (SHORT) ================= -->
+  <section id="about" class="border-b border-slate-800 bg-slate-950">
+    <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:flex-row md:items-center">
+      <div class="flex-1 space-y-4">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-300">
+          About PromptFlow
+        </h2>
+        <p class="text-2xl font-bold text-slate-50 sm:text-3xl">
+          Designed for developers, interview assignments & real projects.
+        </p>
+        <p class="text-sm text-slate-300 sm:text-base">
+          PromptFlow was created to show how strong prompt engineering can
+          consistently generate high-quality UI. Every section on this page
+          has been produced using structured prompts and a single design system.
+        </p>
+        <p class="text-sm text-slate-400">
+          This demonstrates not only visual design sense, but also the ability
+          to think in systems: layout rules, spacing scales, color tokens and
+          reusable components that AI tools can follow.
+        </p>
+      </div>
+
+      <div class="flex-1">
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 text-xs text-slate-200 shadow-lg shadow-slate-900/60"
+        >
+          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+            Prompt Snapshot
+          </p>
+          <pre class="mt-2 overflow-x-auto rounded-xl bg-slate-950/80 p-3 text-[11px] text-slate-300">
+- Use semantic HTML5
+- Tailwind for all styling
+- Mobile-first responsive layout
+- Consistent primary color palette
+- Clean spacing & typography
+- Accessible labels & alt text
+          </pre>
+          <p class="mt-3 text-[11px] text-slate-400">
+            This ensures any AI tool (ChatGPT, Claude, Gemini, etc.) can
+            generate similar quality results from the same prompt set.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT / LEAD FORM SECTION ================= -->
+  <section id="contact" class="border-b border-slate-800 bg-slate-900/70">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+      <div class="mx-auto max-w-2xl text-center space-y-3">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-300">
+          Contact
+        </h2>
+        <p class="text-2xl font-bold text-slate-50 sm:text-3xl">
+          Let’s turn your prompts into real interfaces.
+        </p>
+        <p class="text-sm text-slate-300 sm:text-base">
+          Share your requirements and we’ll get back with a tailored prompt
+          + UI strategy for your next project or interview assignment.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-8 md:grid-cols-[minmax(0,1.1fr),minmax(0,0.9fr)]">
+        <!-- Contact Form -->
+        <form
+          class="space-y-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-xl shadow-slate-950/70"
+          novalidate
+        >
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="text-left">
+              <label for="name" class="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                Full Name
+              </label>
+              <input
+                id="name"
+                type="text"
+                required
+                class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 py-2.5 text-sm text-slate-100 outline-none ring-primary-500/0 placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/60"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div class="text-left">
+              <label for="email" class="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                Email Address
+              </label>
+              <input
+                id="email"
+                type="email"
+                required
+                class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 py-2.5 text-sm text-slate-100 outline-none ring-primary-500/0 placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/60"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            <div class="text-left">
+              <label for="phone" class="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                Phone
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 py-2.5 text-sm text-slate-100 outline-none ring-primary-500/0 placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/60"
+                placeholder="+91 98765 43210"
+              />
+            </div>
+
+            <div class="text-left">
+              <label for="type" class="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                Project Type
+              </label>
+              <select
+                id="type"
+                class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 py-2.5 text-sm text-slate-100 outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/60"
+              >
+                <option>Interview assignment</option>
+                <option>Landing page</option>
+                <option>Dashboard UI</option>
+                <option>Full website</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="text-left">
+            <label for="message" class="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+              Message
+            </label>
+            <textarea
+              id="message"
+              rows="4"
+              class="mt-2 w-full rounded-lg border border-slate-700 bg-slate-900/80 px-3 py-2.5 text-sm text-slate-100 outline-none ring-primary-500/0 placeholder:text-slate-500 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/60"
+              placeholder="Tell us a bit about your project or assignment..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="inline-flex w-full items-center justify-center rounded-full bg-primary-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-700/50 transition hover:bg-primary-700 md:w-auto"
+          >
+            Submit Request
+            <i data-feather="send" class="ml-2 h-4 w-4"></i>
+          </button>
+
+          <p class="text-[11px] text-slate-500">
+            This form is a front-end demo. Connect it to your preferred backend
+            or form handling service in production.
+          </p>
+        </form>
+
+        <!-- Side Info -->
+        <div
+          class="rounded-2xl border border-slate-800 bg-slate-950/60 p-5 text-sm text-slate-200 shadow-lg shadow-slate-950/60"
+        >
+          <h3 class="text-base font-semibold text-slate-50">
+            Why this contact form matters for the assignment?
+          </h3>
+          <p class="mt-2 text-xs text-slate-300">
+            It demonstrates labeled inputs, proper spacing, validation-ready
+            structure, and a clear information hierarchy — all key aspects of a
+            professional lead form.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary-400"></span>
+              <span>Logical grouping: personal info, project details, message.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary-400"></span>
+              <span>Accessible labels linked with <code>for</code> & <code>id</code>.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary-400"></span>
+              <span>Simple to hook into Formik / React or any backend.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-950">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+      <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-primary-600">
+              <span class="text-sm font-extrabold tracking-tight">PF</span>
+            </div>
+            <span class="text-sm font-semibold text-slate-100">PromptFlow</span>
+          </div>
+          <p class="max-w-sm text-xs text-slate-400">
+            A demonstration of prompt engineering for front-end development:
+            consistent UI, responsive layouts, and clean semantic code.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6 text-sm text-slate-300">
+          <a href="#hero" class="hover:text-primary-300">Home</a>
+          <a href="#services" class="hover:text-primary-300">Services</a>
+          <a href="#about" class="hover:text-primary-300">About</a>
+          <a href="#contact" class="hover:text-primary-300">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-4 text-xl text-slate-400">
+          <a href="#" aria-label="Visit Facebook" class="hover:text-primary-300">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Visit Twitter" class="hover:text-primary-300">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" aria-label="Visit Instagram" class="hover:text-primary-300">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Visit LinkedIn" class="hover:text-primary-300">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 border-t border-slate-800 pt-4 text-center text-[11px] text-slate-500">
+        © <span id="year"></span> PromptFlow. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    feather.replace();
+
+    function toggleMobileNav() {
+      const nav = document.getElementById("mobileNav");
+      nav.classList.toggle("hidden");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
